@@ -15,13 +15,24 @@
 
 
       <div class="form-group">
-        <input type="text" id="login" class="fadeIn second" [(ngModel)]="usuario.login"    name="login" placeholder="Usuario" required>
+        <label for="login">E-mail</label>
+        <input type="email" class="form-control" #email="ngModel" [(ngModel)]="usuario.login"  id="login" name="login" placeholder="Usuario" required>
+        <div *ngIf="email.invalid" class="alert alert-danger">Login deve ser informado</div>
+      
       </div>
+      
+
       <div class="form-group">
-        <input type="text" id="senha" class="fadeIn third" [(ngModel)]="usuario.senha"   name="senha" placeholder="Senha" required>
+        <label for="senha">Senha</label>
+        <input type="text" class="form-control" #senha="ngModel" [(ngModel)]="usuario.senha" id="senha" name="senha" placeholder="Senha" required>
+        <div *ngIf="senha.invalid" class="alert alert-danger">Senha deve ser informada</div>
+      
+      
       </div>
+      
+
       <div class="form-group">
-      <input type="submit" class="fadeIn fourth" value="Acessar" (click)="login()">
+      <input type="button" [disabled]="email.invalid || senha.invalid" class="btn btn-primary" value="Acessar" (click)="login()">
 
 <!-- Remind Passowrd -->
     <div id="formFooter">

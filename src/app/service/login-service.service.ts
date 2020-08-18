@@ -25,8 +25,9 @@ export class LoginServiceService {
       console.log("token : " + localStorage.getItem("token"))
 
 
-    }, erroor => {
+    }, error => {
       console.error("Erro ao fazer login, a senha esta incorreta");
+      alert('Acesso Negado!')
     }
     
     
